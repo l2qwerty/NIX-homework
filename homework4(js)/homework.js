@@ -50,23 +50,24 @@ function six (num) {
 
 const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,"H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,"N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113,"T": 405, "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23};
 function seven (string) {
-    let splited = string.split('');
-    let arr = Object.entries(scores);
-    console.log(arr);
-    let result = 0;
-    for (let i = 0; i < splited[0].length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            for (let k = 0; k < arr[j].length; k++) {
-                if (splited[i] === arr[j][k]) {
-                    result += arr[j][1];
-                }
-            }
-        }
+    let splited = string.toUpperCase().split('');
+    let score = 0;
+    for (let i = 0; i < splited.length; i++) {
+        score += scores[splited[i]];
+    } 
+    if (score <= 60) {
+        console.log('NOT TOO GOOD');
     }
-    console.log(result);
+    else if (score === 61 || score <= 300) {
+        console.log('PRETTY GOOD');
+    }
+    else if (score === 301 || score <= 599) {
+        console.log('VERY GOOD');
+    }
+    else if (score >= 600) {
+        console.log('THE BEST');
+    }
 }
-
-seven('Vova');
 
 function eight (string) {
     return string.match(/[aeiou]/gi).length;
@@ -106,20 +107,28 @@ function twelve (obj, num) {
 }
 
 function thirteenLeft (string) {
-    let arr = string.split(' ');
-    console.log(arr);
     let result = [];
-    result[0] = arr;
-    for (let i = 0; i < arr.length; i++) {
-        let cache = arr.shift();
-        for (let j = 1; j < arr[i].length; j++) {
-            result[i][j] = arr[i].push(cache);
-        }
+    let cacheOne = string.split('');;
+    let cacheTwo = [];
+    for (let i = 0; i < string.length; i++) {
+        result[i] = cacheOne.toString().replace(/[,]/g, '');
+        cacheTwo = cacheOne.shift();
+        cacheOne.push(cacheTwo);       
     }
-    console.log(result);
+    return result;
 }
 
-
+function thirteenRight (string) {
+    let result = [];
+    let cacheOne = string.split('');;
+    let cacheTwo = [];
+    for (let i = 0; i < string.length; i++) {
+        result[i] = cacheOne.toString().replace(/[,]/g, '');
+        cacheTwo = cacheOne.pop();
+        cacheOne.unshift(cacheTwo);       
+    }
+    return result;
+}
 
 function fourteen (a, b, c, w, h) {
     if (a === w && b === h || b === w && c === h || a === h && c === w) {
