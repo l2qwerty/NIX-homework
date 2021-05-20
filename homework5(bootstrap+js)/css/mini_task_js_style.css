@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+div {
+    margin-bottom: 30px;
+}
+
+.container {
+    display: block;
+    width: 100%;
+}
+
+.block, .container_hide {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(85, 71, 211);
+    opacity: 0.5;
+    border-radius: 10px;
+}
+
+.hide_text{
+    font-size: 2rem;
+    opacity: 0;
+}
+
+.hide_link, .disable_event{
+    border: 2px solid rgb(9, 0, 128);
+    border-radius: 10px;
+}
